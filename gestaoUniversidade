@@ -1,0 +1,28 @@
+CREATE TABLE Aluno (
+ matricula INT PRIMARY KEY,
+ nome_completo VARCHAR(100),
+ curso VARCHAR(100),
+ email VARCHAR(100)
+);
+
+CREATE TABLE Professor (
+ id_professor INT PRIMARY KEY,
+ nome_completo VARCHAR(100),
+ area_especilizacao VARCHAR(100)
+);
+
+CREATE TABLE Disciplina (
+ codigo_disciplina INT PRIMARY KEY,
+ nome_disciplina VARCHAR(100),
+ carga_horaria INT
+);
+
+CREATE TABLE Matricula (
+ id_matricula INT PRIMARY KEY,
+ semestre VARCHAR(20),
+ matricula_aluno INT,
+ codigo_disciplina INT,
+
+ FOREIGN KEY (matricula_aluno) REFERENCES Aluno(matricula),
+ FOREIGN KEY (codigo_disciplina) REFERENCES Disciplina(codigo_disciplina)
+);
